@@ -1,0 +1,48 @@
+.dialog[open] {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  animation: show-dialog 1s ease normal;
+}
+.dialog.hide {
+  animation: hide-dialog 1s ease normal;
+}
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.dialog[open]::backdrop {
+  animation: show-backdrop 0.5s ease 0.2s normal both;
+}
+.dialog.hide::backdrop {
+  animation: hide-backdrop 0.5s ease 0.2s normal;
+}
+@keyframes show-dialog {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes hide-dialog {
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes show-backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide-backdrop {
+  to {
+    opacity: 0;
+  }
+}
